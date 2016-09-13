@@ -227,9 +227,9 @@ Where value can be either an Array, String, Number or Float.
 ####Simple Attributes example
 ```
 {
-  *...
-  sku,name,description, etc...
-  ...*
+  
+  ...Product Attributes...,
+
   attributes: {
     key: value,
     
@@ -246,9 +246,6 @@ Where value can be either an Array, String, Number or Float.
     weight: 10.5,
 
   }
-  *...
-  media,price,updatedAt etc...
-  ...*
 }
 ```
 
