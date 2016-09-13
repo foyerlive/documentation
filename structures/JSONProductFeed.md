@@ -208,7 +208,7 @@ Providing a pure string property represents `{ type: 'image', url: STRINGVALUE }
 ##Attribute Object properties
 Each product has an array of Attribute objects. Each Product Variation can also have a distinct set of Attribute Objects.
 
-There are several ways of providing product attributes.
+There are a couple of ways to provide product attributes.
 
 ###Detailed Attribute Object properties
 
@@ -217,7 +217,7 @@ There are several ways of providing product attributes.
 | name | String | A visible representation for the name of the attribute, i.e. Shoe Width |
 | code | String | A code-level representation for the name of the attribute, i.e. shoeWidth or shoe_width |
 | value | String | The actual value of the attribute |
-| type (optional) | String | Defaults to 'string', also supported: 'Array', 'Object' |
+| type (optional) | String | Defaults to 'string', also supported: 'Array', 'Object', 'HTML' |
 | position (optional) | Integer | Used for sorting displayed attributes (ascending) |
 
 ###Simple Attribute Object properties
@@ -228,7 +228,7 @@ Where value can be either an Array, String, Number or Float.
 ```
 {
   
-  ...Product Attributes...,
+  ...Product Properties...,
 
   attributes: {
     key: value,
