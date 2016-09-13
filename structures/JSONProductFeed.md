@@ -13,12 +13,12 @@
 | price | Double | The default product price. |
 | salePrice | Double | The product sale price, leave empty to use the default price. |
 | media | Array | References to various [Media assets](#media-object-properties). |
-| attributes | Array | References to various product Attributes. |
-| categories | Array | References to various product Categories. |
+| attributes | Array | References to various product [Attributes](#attribute-object-properties). |
+| categories | Array | References to various product [Categories](#category-object-properties. |
 | similarProducts | Array | References to similar product SKUs. |
 | relatedProducts | Array | References to related product SKUs. |
 | options | Array | List of attributes that require configuration. |
-| variations | Array | List of product Variations, based on attributes like size or color. |
+| variations | Array | List of [Product Variations](#product-variation-object-properties), based on attributes like size or color. |
 
 ### Simple Product example
 ```
