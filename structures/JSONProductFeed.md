@@ -1,6 +1,6 @@
 #FoyerLive - JSON Product Feed
 
-##Product Properties
+##Product Object Properties
   
 | Field | Type | Overview |
 | ----- | ---- | -------- |
@@ -18,7 +18,7 @@
 | similarProducts | array | References to similar product SKUs. |
 | relatedProducts | array | References to related product SKUs. |
 | options | array | List of attributes that require configuration. |
-| variations | array | List of product variations, based on attributes like size or color. |
+| variations | array | List of product Variations, based on attributes like size or color. |
 
 ### Simple Product Example
 ```
@@ -192,3 +192,15 @@
   ]
 }
 ```
+
+##Media Object Properties
+Each product has an array of Media objects. Each Product Variation can also have an distinct set of Media Objects.
+
+Providing a pure string property represents `{ type: 'image', url: STRINGVALUE }`
+
+| Field | Type | Overview |
+| ----- | ---- | -------- |
+| type | string | Defaults to 'image', also supported: 'video', 'youtube' |
+| url | string | A URL reference for the asset |
+| label (optional) | string | A description of the asset |
+| position (optional) | integer | Used for sorting assets (assending) |
