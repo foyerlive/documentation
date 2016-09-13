@@ -6,8 +6,8 @@
 | ----- | ---- | -------- |
 | sku | String | A unique identifier for the product. |
 | upc *(optional)*| String | The barcode, UPC or ISBN number for the product. |
-| url | String | A URL to purchase the product. |
 | inventory *(optional)*| Number | The number of products available for ordering. |
+| url | String | A URL to purchase the product. |
 | name | String | The product name. |
 | description | String | The product description. Can contain basic HTML. |
 | price | Double | The default product price. |
@@ -202,8 +202,8 @@ Providing a pure string property represents `{ type: 'image', url: STRINGVALUE }
 | ----- | ---- | -------- |
 | type | String | Defaults to 'image', also supported: 'video', 'youtube' |
 | url | String | A URL reference for the asset |
-| label (optional) | String | A description of the asset |
-| position (optional) | Integer | Used for sorting assets (assending) |
+| label *(optional)* | String | A description of the asset |
+| position *(optional)* | Integer | Used for sorting assets (assending) |
 
 ##Attribute Object properties
 Each product has an array of Attribute objects. Each Product Variation can also have a distinct set of Attribute Objects.
@@ -217,8 +217,8 @@ There are a couple of ways to provide product attributes.
 | name | String | A visible representation for the name of the attribute, i.e. Shoe Width |
 | code | String | A code-level representation for the name of the attribute, i.e. shoeWidth or shoe_width |
 | value | String | The actual value of the attribute |
-| type (optional) | String | Defaults to 'string', also supported: 'Array', 'Object', 'HTML' |
-| position (optional) | Integer | Used for sorting displayed attributes (ascending) |
+| type *(optional)* | String | Defaults to 'string', also supported: 'Array', 'Object', 'HTML' |
+| position *(optional)* | Integer | Used for sorting displayed attributes (ascending) |
 
 ###Simple Attribute Object properties
 As an alternative to providing a detailed object property, a simple key: value Object can also be used.
