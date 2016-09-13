@@ -12,9 +12,9 @@
 | description | String | The product description. Can contain basic HTML. |
 | price | Double | The default product price. |
 | salePrice | Double | The product sale price, leave empty to use the default price. |
-| media | Array | References to various [Media assets](#media-object-properties). |
-| attributes | Array | References to various product [Attributes](#attribute-object-properties). |
-| categories | Array | References to various product [Categories](#category-object-properties. |
+| media | Array | References to one or more [Media Assets](#media-object-properties). |
+| attributes | Array | References to one or more [Product Attributes](#attribute-object-properties). |
+| categories | Array | References to one or more [Product Categories](#category-object-properties). |
 | similarProducts | Array | References to similar product SKUs. |
 | relatedProducts | Array | References to related product SKUs. |
 | options | Array | List of attributes that require configuration. |
