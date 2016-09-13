@@ -4,21 +4,21 @@
   
 | Field | Type | Overview |
 | ----- | ---- | -------- |
-| sku | string | A unique identifier for the product. |
-| upc | string | The barcode, UPC or ISBN number for the product. |
-| url | string | A URL to purchase the product. |
-| inventory | number | The number of products available for ordering. |
-| name | string | The product name. |
-| description | string | The product description. Can contain basic HTML. |
-| price | double | The default product price. |
-| salePrice | double | The product sale price, leave empty to use the default price. |
-| media | array | References to various Media assets. |
-| attributes | array | References to various product Attributes. |
-| categories | array | References to various product Categories. |
-| similarProducts | array | References to similar product SKUs. |
-| relatedProducts | array | References to related product SKUs. |
-| options | array | List of attributes that require configuration. |
-| variations | array | List of product Variations, based on attributes like size or color. |
+| sku | String | A unique identifier for the product. |
+| upc *(optional)*| String | The barcode, UPC or ISBN number for the product. |
+| url | String | A URL to purchase the product. |
+| inventory *(optional)*| Number | The number of products available for ordering. |
+| name | String | The product name. |
+| description | String | The product description. Can contain basic HTML. |
+| price | Double | The default product price. |
+| salePrice | Double | The product sale price, leave empty to use the default price. |
+| media | Array | References to various Media assets. |
+| attributes | Array | References to various product Attributes. |
+| categories | Array | References to various product Categories. |
+| similarProducts | Array | References to similar product SKUs. |
+| relatedProducts | Array | References to related product SKUs. |
+| options | Array | List of attributes that require configuration. |
+| variations | Array | List of product Variations, based on attributes like size or color. |
 
 ### Simple Product Example
 ```
@@ -194,13 +194,61 @@
 ```
 
 ##Media Object Properties
-Each product has an array of Media objects. Each Product Variation can also have an distinct set of Media Objects.
+Each product has an array of Media objects. Each Product Variation can also have a distinct set of Media Objects.
 
 Providing a pure string property represents `{ type: 'image', url: STRINGVALUE }`
 
 | Field | Type | Overview |
 | ----- | ---- | -------- |
-| type | string | Defaults to 'image', also supported: 'video', 'youtube' |
-| url | string | A URL reference for the asset |
-| label (optional) | string | A description of the asset |
-| position (optional) | integer | Used for sorting assets (assending) |
+| type | String | Defaults to 'image', also supported: 'video', 'youtube' |
+| url | String | A URL reference for the asset |
+| label (optional) | String | A description of the asset |
+| position (optional) | Integer | Used for sorting assets (assending) |
+
+##Attribute Object Properties
+Each product has an array of Attribute objects. Each Product Variation can also have a distinct set of Attribute Objects.
+
+There are several ways of providing product attributes.
+
+###Detailed Attribute Object Properties
+
+| Field | Type | Overview |
+| ----- | ---- | -------- |
+| name | String | A visible representation for the name of the attribute, i.e. Shoe Width |
+| code | String | A code-level representation for the name of the attribute, i.e. shoeWidth or shoe_width |
+| value | String | The actual value of the attribute |
+| type (optional) | String | Defaults to 'string', also supported: 'Array', 'Object' |
+| position (optional) | Integer | Used for sorting displayed attributes (ascending) |
+
+###Simple Attribute Object Properties
+As an alternative to providing a detailed object property, a simple key: value Object can also be used.
+Where value can be either an Array, String, Number or Float.
+
+####Simple Attributes Example
+```
+{
+  ...
+  sku,name,description, etc...
+  ...
+  attributes: {
+    key: value,
+    
+    // Array
+    colors: ['Red', 'Green', 'Blue'],
+    
+    // String
+    shoeWidth: 'Wide',
+    
+    // Number
+    size: 5,
+    
+    // Float
+    weight: 10.5,
+
+  }
+  ...
+  media,price,updatedAt etc...
+  ...
+}
+```
+
