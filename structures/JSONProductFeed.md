@@ -7,7 +7,7 @@
 | sku | string | A unique identifier for the product. |
 | upc | string | The barcode, UPC or ISBN number for the product. |
 | url | string | A URL to purchase the product. |
-| brand | string | The brand name or vendor of the product. |
+| inventory | number | The number of products available for ordering. |
 | name | string | The product name. |
 | description | string | The product description. Can contain basic HTML. |
 | price | double | The default product price. |
@@ -15,17 +15,66 @@
 | media | array | References to various Media assets. |
 | attributes | array | References to various product Attributes. |
 | categories | array | References to various product Categories. |
-| options | array | List of attributes that require configuration. |
 | similarProducts | array | References to similar product SKUs. |
 | relatedProducts | array | References to related product SKUs. |
+| options | array | List of attributes that require configuration. |
+| variations | array | List of product variations, based on attributes like size or color. |
 
+### Simple Product Example
+```
+{
+  sku: "619360-067",
+  url: "http://store.nike.com/au/en_gb/pd/jordan-jumpman-fitted-hat/pid-10997158/pgid-11100969",
+  name: "JORDAN JUMPMAN",
+  description: "<h2>BOLD CONTRAST, LASTING COMFORT</h2><p>The Jordan Jumpman Adjustable Hat features vivid colour-blocking and a world-famous symbol on wool fabric for iconic style and a durable, comfortable fit.</p>",
+  price: 40.00,
+  media: [
+    {
+      url: "http://images.nike.com/is/image/DotCom/PDP_HERO_S/Jordan-Jumpman-Adjustable-Hat-619360_067_A.jpg",
+    }
+  ],
+  attributes: {
+    // Example of basic attributes...
+    type: "Hat",
+    color: "Cool Grey/White",
+    colorFamily: "Grey",
+    care: "Do not wash",
+    weight: 100,
+    brand: "Nike",
+    material: "Fabric: Body/face of front: 100% wool. Back of front panel: 80% polyester/20% cotton. Underbill: 100% cotton.",
+    size: "Adjustable"
+  },
+  categories: [
+    {
+      name: "Clothing",
+      path: "clothing/"
+    },
+    {
+      name: "Hats",
+      path: "clothing/hats/"
+    }
+  ],
+  similarProducts: [
+    "729497-010"
+  ],
+  relatedProducts: [
+    "619360-689"
+  ],
+  updatedAt: "2016-01-05T10:00:00-04:00",
+  createdAt: "2015-12-09T10:00:00-04:00",
+  
+  // Include inventory and UPC if available...
+  inventory: 43,
+  upc: "886549136925"
+}
+```
+### Configurable Product Example
 ```
 {
   sku: "819952-029",
   url: "http://store.nike.com/au/en_gb/pd/air-jordan-spike-forty-shoe/pid-10873124/pgid-11115776",
-  brand: "Nike",
   name: "AIR JORDAN SPIKE FORTY",
-  description: "<h2> A LEGEND, REIMAGINED.</h2><p>The Air Jordan Spike Forty Men's Shoe is a player-exclusive sequel to the beloved Jordan Spizike. Iconic elements from the AJ V all get a fresh look thanks to modern materials and technology.</p>",
+  description: "<h2>A LEGEND, REIMAGINED.</h2><p>The Air Jordan Spike Forty Men's Shoe is a player-exclusive sequel to the beloved Jordan Spizike. Iconic elements from the AJ V all get a fresh look thanks to modern materials and technology.</p>",
   price: 260.00,
   salePrice: 199.00,
   media: [
@@ -44,6 +93,7 @@
     colorFamily: "Multicolored",
     care: "Machine washable",
     weight: 240,
+    brand: "Nike",
     sport: "Basketball",
     gender: "Mens"
     
