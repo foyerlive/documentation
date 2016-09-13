@@ -1,6 +1,6 @@
 #FoyerLive - JSON Product Feed
 
-##Product Object Properties
+##Product Object properties
   
 | Field | Type | Overview |
 | ----- | ---- | -------- |
@@ -20,7 +20,7 @@
 | options | Array | List of attributes that require configuration. |
 | variations | Array | List of product Variations, based on attributes like size or color. |
 
-### Simple Product Example
+### Simple Product example
 ```
 {
   sku: "619360-067",
@@ -68,7 +68,7 @@
   upc: "886549136925"
 }
 ```
-### Configurable Product Example
+### Advanced Product example with Variations
 ```
 {
   sku: "819952-029",
@@ -193,7 +193,7 @@
 }
 ```
 
-##Media Object Properties
+##Media Object properties
 Each product has an array of Media objects. Each Product Variation can also have a distinct set of Media Objects.
 
 Providing a pure string property represents `{ type: 'image', url: STRINGVALUE }`
@@ -205,12 +205,12 @@ Providing a pure string property represents `{ type: 'image', url: STRINGVALUE }
 | label (optional) | String | A description of the asset |
 | position (optional) | Integer | Used for sorting assets (assending) |
 
-##Attribute Object Properties
+##Attribute Object properties
 Each product has an array of Attribute objects. Each Product Variation can also have a distinct set of Attribute Objects.
 
 There are several ways of providing product attributes.
 
-###Detailed Attribute Object Properties
+###Detailed Attribute Object properties
 
 | Field | Type | Overview |
 | ----- | ---- | -------- |
@@ -220,11 +220,11 @@ There are several ways of providing product attributes.
 | type (optional) | String | Defaults to 'string', also supported: 'Array', 'Object' |
 | position (optional) | Integer | Used for sorting displayed attributes (ascending) |
 
-###Simple Attribute Object Properties
+###Simple Attribute Object properties
 As an alternative to providing a detailed object property, a simple key: value Object can also be used.
 Where value can be either an Array, String, Number or Float.
 
-####Simple Attributes Example
+####Simple Attributes example
 ```
 {
   ...
