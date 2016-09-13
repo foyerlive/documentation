@@ -94,7 +94,7 @@ Below is an example BASH script that will look for the latest exported file, and
 #!/bin/bash
 file=$(ls -ltr | tail -1 | awk '{print $NF}')
 now=$(date +"%Y-%m-%d-%H-%M-%S")
-remote="s3://upload.foyerlive.com/REPLACE_WITH_ACCOUNT_CODE/full_product_feed_$now.csv"
+remote="s3://upload.foyerlive.com/REPLACE_WITH_ACCOUNT_CODE/full-products-$now.csv"
 if [ -f $file ] ; then
   echo $file
   echo $remote
