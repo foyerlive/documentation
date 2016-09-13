@@ -4,7 +4,7 @@
   
 | Field | Type | Overview |
 | ----- | ---- | -------- |
-| sku | integer,string | A unique identifier for the product. |
+| sku | string | A unique identifier for the product. |
 | upc | string | The barcode, UPC or ISBN number for the product. |
 | url | string | A URL to purchase the product. |
 | brand | string | The brand name or vendor of the product. |
@@ -15,13 +15,13 @@
 | media | array | References to various Media assets. |
 | attributes | array | References to various product Attributes. |
 | categories | array | References to various product Categories. |
+| options | array | List of attributes that require configuration. |
 | similarProducts | array | References to similar product SKUs. |
 | relatedProducts | array | References to related product SKUs. |
 
 ```
 {
-  id: "819952-029",
-  upc: "886549136925",
+  sku: "819952-029",
   url: "http://store.nike.com/au/en_gb/pd/air-jordan-spike-forty-shoe/pid-10873124/pgid-11115776",
   brand: "Nike",
   name: "AIR JORDAN SPIKE FORTY",
@@ -30,7 +30,7 @@
   salePrice: 199.00,
   media: [
     {
-      url:"http://images.nike.com/is/image/DotCom/PDP_HERO_S/AIR-JORDAN-SPIKE-FORTY-819952_029_A_PREM.jpg",
+      url: "http://images.nike.com/is/image/DotCom/PDP_HERO_S/AIR-JORDAN-SPIKE-FORTY-819952_029_A_PREM.jpg",
       {
         type: "video",
         url: "https://youtu.be/NPYJKb0MbXU"
@@ -43,12 +43,13 @@
     color: "Black/Photo Blue/Atomic Orange/Fire Pink",
     colorFamily: "Multicolored",
     care: "Machine washable",
-    weight: 170,
+    weight: 240,
     sport: "Basketball",
     gender: "Mens"
     
     // Example of an array attribute...
     material: ["rubber", "fabric"],
+    colors: ["Blue", "Black"],
     
     // Example of a detailed attribute..
     {
@@ -84,6 +85,60 @@
     "SX2554-901"
   ],
   updatedAt: "2016-01-05T10:00:00-04:00",
-  createdAt: "2015-12-09T10:00:00-04:00"
+  createdAt: "2015-12-09T10:00:00-04:00",
+  options: [
+    "color",
+    "size"
+  ]
+  variations: [
+    {
+      sku: "819952-029-BLU-9",
+      upc: "886549136925",
+      inventory: 43,
+      attributes: [
+        color: "Blue",
+        size: "9"
+      ],
+      media: [
+        url: "http://images.nike.com/is/image/DotCom/PDP_HERO_S/AIR-JORDAN-SPIKE-FORTY-819952_029_A_PREM_BLUE.jpg",
+      ]
+    },
+    {
+      sku: "819952-029-BLU-10",
+      upc: "886549136927",
+      inventory: 85,
+      attributes: [
+        color: "Blue",
+        size: "10"
+      ],
+      media: [
+        url: "http://images.nike.com/is/image/DotCom/PDP_HERO_S/AIR-JORDAN-SPIKE-FORTY-819952_029_A_PREM_BLUE.jpg",
+      ]
+    },
+    {
+      sku: "819952-029-BLA-9",
+      upc: "886549136928",
+      inventory: 143,
+      attributes: [
+        color: "Black",
+        size: "9"
+      ],
+      media: [
+        url: "http://images.nike.com/is/image/DotCom/PDP_HERO_S/AIR-JORDAN-SPIKE-FORTY-819952_029_A_PREM_BLACK.jpg",
+      ]
+    },
+    {
+      sku: "819952-029-BLA-10",
+      upc: "886549136929",
+      inventory: 235,
+      attributes: [
+        color: "Black",
+        size: "10"
+      ],
+      media: [
+        url: "http://images.nike.com/is/image/DotCom/PDP_HERO_S/AIR-JORDAN-SPIKE-FORTY-819952_029_A_PREM_BLACK.jpg",
+      ]
+    }
+  ]
 }
 ```
