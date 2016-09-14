@@ -21,7 +21,7 @@
 | variations *(optional)*| Array | List of [Product Variations](#product-variation-object-properties), based on attributes like size or color. |
 
 ### Simple Product example
-```
+```json
 {
   sku: "619360-067",
   url: "http://store.nike.com/au/en_gb/pd/jordan-jumpman-fitted-hat/pid-10997158/pgid-11100969",
