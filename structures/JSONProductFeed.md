@@ -17,8 +17,8 @@
 | categories | Array | References to one or more [Product Categories](#category-object-properties). |
 | similarProducts | Array | References to similar product SKUs. |
 | relatedProducts | Array | References to related product SKUs. |
-| options | Array | List of attributes that require configuration. |
-| variations | Array | List of [Product Variations](#product-variation-object-properties), based on attributes like size or color. |
+| options *(optional)*| Array | List of attribute keys that are available to configure a product down to one unique [Product Variation](#product-variation-object-properties) |
+| variations *(optional)*| Array | List of [Product Variations](#product-variation-object-properties), based on attributes like size or color. |
 
 ### Simple Product example
 ```
@@ -192,9 +192,21 @@
   ]
 }
 ```
+##Product Variation Object properties
+When a Product has several variations, based on, for example, size and color, a product variation is required for each
+possible combination. This allows the interface to dynamically prepare a menu to configure a Product down to a single
+SKU available to order/purchase.
+
+| Field | Type | Overview |
+| ----- | ---- | -------- |
+| sku | String | A unique identifier for this product variation. |
+| upc *(optional)*| String | The barcode, UPC or ISBN number for the product. |
+| inventory *(optional)*| Number | The number of products available for ordering. |
+| media | Array | References to one or more [Media Assets](#media-object-properties), specifically for this variation |
+| attributes | Array | References to one or more [Product Attributes](#attribute-object-properties). <br><br>**Note:** There must be an attribute for each of the attribute keys in the `options` Product property.
 
 ##Media Object properties
-Each product has an array of Media objects. Each Product Variation can also have a distinct set of Media Objects.
+Each product has an array of Media Asset objects. Each Product Variation can also have a distinct set of Media Asset Objects.
 
 Providing a pure string property represents `{ type: 'image', url: STRINGVALUE }`
 
@@ -246,6 +258,86 @@ Where value can be either an Array, String, Number or Float.
     weight: 10.5,
 
   }
+}
+```
+
+##Category Object properties
+Each product has an array of Category objects, potentially used as the display structure for FoyerLive Interact.
+
+**Note: It is not necessary to include a ROOT category**
+
+| Field | Type | Overview |
+| ----- | ---- | -------- |
+| name | String | The visible name of the category, excluding parent category references. |
+| path | String | The full path for the category |
+
+### Invalid Category Object examples
+
+#### Providing a ROOT category
+```
+{
+    name: "All Products",
+    path: "/"
+}
+```
+
+#### Path starting with a slash (/)
+```
+{
+    name: "Shoes",
+    path: "/shoes"
+}
+```
+
+#### Name contains a breadcrumb format
+In this case a more appropriate value for the `name` property would be `"Men's Shoes"`
+
+```
+{
+    name: "Shoes - Mens",
+    path: "shoes/mens"
+}
+```
+
+#### Path contains an unnecessary slash (/)
+```
+{
+    name: "Running Shoes",
+    path: "shoes/running/"
+}
+```
+
+### Valid Category Object examples
+
+#### First-level category
+```
+{
+    name: "Shoes",
+    path: "shoes/"
+}
+```
+
+#### Second-level category
+```
+{
+    name: "Men's Shoes",
+    path: "shoes/mens"
+}
+```
+
+#### Third-level category
+```
+{
+    name: "Running Shoes",
+    path: "shoes/mens/running"
+}
+```
+
+#### Third-level category alternative
+```
+{
+    name: "Men's Running Shoes",
+    path: "shoes/mens/running"
 }
 ```
 
