@@ -194,8 +194,7 @@
 ```
 ##Product Variation Object properties
 When a Product has several variations, based on, for example, size and color, a product variation is required for each
-possible combination. This allows the interface to dynamically prepare a menu to configure a Product down to a single
-SKU available to order/purchase.
+possible combination. The variations are dynamically added to the interface as options of a single Product SKU to be selected when configuring that Product for order/purchase.
 
 | Field | Type | Overview |
 | ----- | ---- | -------- |
@@ -220,7 +219,7 @@ Providing a pure string property represents `{ type: 'image', url: STRINGVALUE }
 ##Attribute Object properties
 Each product has an array of Attribute objects. Each Product Variation can also have a distinct set of Attribute Objects.
 
-There are a couple of ways to provide product attributes.
+There are a couple of ways to provide product attributes, Detailed Attribute Object properties or Simple Attribute Object properties.
 
 ###Detailed Attribute Object properties
 
@@ -262,7 +261,7 @@ Where value can be either an Array, String, Number or Float.
 ```
 
 ##Category Object properties
-Each product has an array of Category objects, potentially used as the display structure for FoyerLive Interact.
+Each product has an array of Category objects, typically used as the display structure for FoyerLive Interact.
 
 **Note: It is not necessary to include a ROOT category**
 
