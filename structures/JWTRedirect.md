@@ -33,14 +33,15 @@ Please Note: The customer only interacts in the **bolded** sections highlighted 
     - Cart is processed for promotions and can optionally have coupons applied (e.g. free shipping)
         - Optionally save the storeCode information with the order
     - Checkout process is initiated
-    - If PayPal express is available: HTTP 302 Redirect to PayPal Express Checkout
+        - If PayPal express is available: HTTP 302 Redirect to PayPal Express Checkout
 - Customer
-    - Redirected to `PayPal Express Checkout`
-- PayPal
+    - Completes checkout process on E-Commerce Platform
+    - If PayPal express is available: Redirected to `PayPal Express Checkout`
+- E-Commerce Platform / PayPal 
     - Validates order information and presents login screen with cart contents and total order value
 - **Customer**
-    - **Enters / Confirms login details with PayPal**
-    - **Confirms payment & shipping information**
+    - **Confirms payment & shipping information** or
+    - **If PayPal express is available: Enters / Confirms login details with PayPal**
 - PayPal
     - Validates the payment details and delivers a HTTP 302 Redirect back to E-Commerce Platform with confirmation information
 - E-Commerce Platform
