@@ -211,7 +211,7 @@ Providing a pure string property represents `{ type: 'image', url: STRINGVALUE }
 
 | Field | Type | Overview |
 | ----- | ---- | -------- |
-| type | String | Defaults to 'image', also supported: 'video', 'youtube' |
+| type *(optional)* | String | Defaults to 'image', also supported: 'video', 'youtube' |
 | url | String | A URL reference for the asset |
 | label *(optional)* | String | A description of the asset |
 | position *(optional)* | Integer | Used for sorting assets (assending) |
