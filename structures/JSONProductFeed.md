@@ -11,7 +11,7 @@
 | name | String | The product name. |
 | description | String | The product description. Can contain basic HTML. |
 | price | Double | The default product price. |
-| salePrice | Double | The product sale price, leave empty to use the default price. |
+| pricePrevious | Double | The product price before any promotions have been applied |
 | media | Array | References to one or more [Media Assets](#media-object-properties). |
 | attributes | Array | References to one or more [Product Attributes](#attribute-object-properties). |
 | categories | Array | References to one or more [Product Categories](#category-object-properties). |
@@ -75,8 +75,8 @@
   url: "http://store.nike.com/au/en_gb/pd/air-jordan-spike-forty-shoe/pid-10873124/pgid-11115776",
   name: "AIR JORDAN SPIKE FORTY",
   description: "<h2>A LEGEND, REIMAGINED.</h2><p>The Air Jordan Spike Forty Men's Shoe is a player-exclusive sequel to the beloved Jordan Spizike. Iconic elements from the AJ V all get a fresh look thanks to modern materials and technology.</p>",
-  price: 260.00,
-  salePrice: 199.00,
+  price: 199.00,
+  pricePrevious: 260.00,
   media: [
     {
       url: "http://images.nike.com/is/image/DotCom/PDP_HERO_S/AIR-JORDAN-SPIKE-FORTY-819952_029_A_PREM.jpg",
