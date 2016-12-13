@@ -1,0 +1,49 @@
+        - Optionally save the storeCode information with the order
+    - Checkout process is initiated
+        - If PayPal express is available: HTTP 302 Redirect to PayPal Express Checkout
+- Customer
+    - Completes checkout process on E-Commerce Platform
+    - If PayPal express is available: Redirected to `PayPal Express Checkout`
+- E-Commerce Platform / PayPal 
+    - Validates order information and presents login screen with cart contents and total order value
+- **Customer**
+    - **Confirms payment & shipping information** or
+    - **If PayPal express is available: Enters / Confirms login details with PayPal**
+- PayPal
+    - Validates the payment details and delivers a HTTP 302 Redirect back to E-Commerce Platform with confirmation information
+- E-Commerce Platform
+    - Validates PayPal order confirmation and retrieves shipping information
+        - Optionally can present a final 'Confirm Order' page
+    - Marks order as paid, delivers receipt via e-mail
+    - Displays standard 'Order Successful' page
+    - Pings FoyerLive Server for successful order
+- Customer
+    - Patiently waits for :package:
+    
+    
+## Cart Data Example - Multiple Products
+```json
+{
+    "organisationId": 1,
+    "productData": [
+        {
+            "sku": "541JON-BRN-8-MED",
+            "qty": 1
+        },
+        {
+            "sku": "266RAN-BLK-8-MED",
+            "qty": 1
+        }
+    ],
+    "mode": "paypal",
+    "storeCode": "MELCENTRAL2-0100",
+    "redirectCode": "5285E",
+    "pingBackURI": "https://api.foyerlive.com/redirect/pingback/5285E"
+}
+```
+
+## Store Code Parameter
+The `storeCode` parameter is provided to allow the E-Commerce platform to keep track of orders arriving from a particular store & display device, and additionally a reference to an employee via a 4 digit number. Simply split the storeCode at the '-' to receive each part: i.e. `MELCENTRAL2-0100` References device `MELCENTRAL2` and the retail associate code `100`.
+
+## Mode Parameter
+The `mode` parameter is provided to find out if the device/user selected `paypal` as a checkout method, if so, attempt to automatically redirect the user, or `manual` - where the e-commerce platform should simply present the populated cart, ready to begin the checkout process.
