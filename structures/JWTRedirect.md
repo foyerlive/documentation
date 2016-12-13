@@ -54,20 +54,6 @@ Please Note: The customer only interacts in the **bolded** sections highlighted 
     - Patiently waits for :package:
     
     
-## Cart Data Example - Single Product
-```json
-{
-    "organisationId": 1,
-    "productData": {
-        "sku": "541JON-BRN-8-MED"
-    },
-    "mode": "manual",
-    "storeCode": "MELCENTRAL1-0100",
-    "redirectCode": "5285E",
-    "pingBackURI": "https://api.foyerlive.com/redirect/pingback/5285E"
-}
-```
-    
 ## Cart Data Example - Multiple Products
 ```json
 {
