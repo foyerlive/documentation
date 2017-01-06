@@ -57,7 +57,6 @@ Please Note: The customer only interacts in the **bolded** sections highlighted 
 ## Cart Data Example - Multiple Products
 ```json
 {
-    "organisationId": 1,
     "productData": [
         {
             "sku": "541JON-BRN-8-MED",
@@ -70,7 +69,7 @@ Please Note: The customer only interacts in the **bolded** sections highlighted 
     ],
     "mode": "paypal",
     "storeCode": "MELCENTRAL2-0100",
-    "redirectCode": "5285E",
+    "requestId": "492027ab-2970-4921-a5fd-63db8a5ff3bf",
     "pingBackURI": "https://api.foyerlive.com/redirect/pingback/5285E"
 }
 ```
